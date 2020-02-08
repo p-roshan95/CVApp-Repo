@@ -1,0 +1,16 @@
+****************************Steps to write OpenCV-mac application in Java****************************
+1. install Homebrew
+
+2. install XCode Command Line Tools using terminal: xcode-select --install
+
+3. install ant using: brew install ant        **************(will be available at /usr/local/bin/ant, -after installation)
+
+4. edit the opencv formula in Homebrew, to add support for Java: brew edit opencv In the text editor that will open,
+                      change the line: -DBUILD_opencv_java=OFF 
+                                        to 
+                          -DBUILD_opencv_java=ON
+                     then, after saving the file, you can effectively install OpenCV: brew install --build-from-source opencv
+            (After the installation of OpenCV, the needed jar file and the dylib library will be located at /usr/local/Cellar/opencv/3.x.x/share/OpenCV/java/, e.g., /usr/local/Cellar/opencv/3.4.5/share/OpenCV/java/)
+            
+ 5a. in eclipse, open project build path->User Library, mention jar from above location and dylib library
+ 5b. in intellij, opem project settings(command + ;). Modules->Dependencies->+   and mention jar from above location and dylib library

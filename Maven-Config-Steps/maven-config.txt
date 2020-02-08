@@ -1,0 +1,22 @@
+To install maven and config with Ecliipse/STS (Pre-requisite JDK needs to be insttaled on machine):
+1. Download maven: https://maven.apache.org/download.cgi
+2. Extract and place the directory in required locaion.
+3. Create M2_HOME in USER Variable
+4. Set value as path before bin directory
+5. Create M2 in USER Variable and set value as %M2_HOME%\bin
+6. Create path in USER Variable and set value as %M2%
+7. apply and close.
+8. check maven version in cmd as mvn --version
+
+-------------------------------MAVEN Configuration in Eclipse/STS---------------------------------------
+1. Window->Preference->Maven->Installations->Add
+2. Select Directory value same as M2_HOME and installation name as apache-version-number. Click Apply.
+3. Create .m2  directory under C:\Users\username
+4. Create settings.xml file under .m2 folder.
+5. Go to http://maven.apache.org/settings.html, copy settings xml config and paste that into settings.xml file we created in above step.
+6. Window->Preference->Maven->User Settings
+7. CLick (open file) and CLick Apply.
+8. Window->Preference->Java->Installed JREs->Add->Standard VM->Next
+9. JRE Home: path of JDK before bin. Rest will be automatically filled.. Click Finish.
+10. Click Apply and Close.
+11. Restart Eclipse/STS.

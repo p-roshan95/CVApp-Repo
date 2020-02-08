@@ -1,0 +1,18 @@
+-------------------------------To create bean/pojo class using Avro-------------------------------
+1. avro jars need to be present. see pom file.
+2. Create avro directory under resources folder (present in workspace)
+3. create somename*.avsc file inside avro directory. Contents should be like:-
+      {
+        "type" : "record",
+        "namespace" : "Suitable Java Package",//package
+        "name" : "Suitable Java Class name",//POJO class name
+        "version" : "1"
+        "fields" : [
+          { "name" : "suitable name" , "type" : "string/int/float/boolean" , "doc" : "comment 1" },
+          { "name" : "suitable name2" , "type" : "string/int/float/boolean" , "doc" : "comment 2" },
+        ]
+}
+
+4. make sure there is no compile-time error in working project.
+5. Run project as Maven clean package
+6. Under target diredtoery inside working project, we can find the pojo/bean class created, which can be used by our project.
