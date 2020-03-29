@@ -1,0 +1,15 @@
+****************************Steps to write OpenCV-linux application in Java****************************
+1. installing cmake-gui (sudo apt-get install cmake-gui),,,,,, first install java and ant
+2. create build folder under open-cv directory [git clone from github (git clone git://github.com/Itseez/opencv.git)]
+3. start cmake-gui and go to build folder
+4. go to link: https://opencv-java-tutorials.readthedocs.io/en/stable/01%20-%20Installing%20OpenCV%20for%20Java.html
+5. follow the steps mentioned in link
+6. build OpenCV: make -j8 or make -j4
+7. now for intellij-proj-config,
+a) To use OpenCV in IntelliJ IDEA you will need to add a dependency module.Open an IntelliJ IDEA project which you would like to use OpenCV, and go to “File -> Project Structure -> Libraries.”
+b) Click green “+”, set the path to “opencv/build/bin/opencv-xxx.jar” (Path to “your_open_cv_build/bin/opencv-xxx.jar, xxx being the version eg: opencv-310) and click “OK”
+c) To set path to the library, open “Run -> Edit Configurations”, set “-Djava.library.path=~/opencv/build/lib” (your build/lib path) in the “VM options” form and click “OK.” (Note: please replace “~” to the absolute path to “opencv” directory.)
+
+
+
+References: https://medium.com/@anuraagbaishya/build-opencv-and-use-it-in-intellij-idea-on-ubuntu-2baa5916f3c7
