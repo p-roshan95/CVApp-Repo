@@ -43,11 +43,13 @@ object ConsLauncher {
       .readStream
       .format("kafka")
       .option("kafka.bootstrap.servers", "localhost:9092")
+      .option("kafka.max.partition.fetch.bytes", "2097152")
+      .option("kafka.max.poll.records", "500")
       .option("subscribe", "videoframe")
       .option("startingOffsets", "earliest")
       .load()
 
-    streamDF.printSchema()
+    //streamDF.printSchema()
 
     val sdf = readAvro(streamDF, schemaRegistryConfs)
 
@@ -65,8 +67,8 @@ object ConsLauncher {
       .outputMode("update")
       .format("console")
       .option("truncate", "false")
-      .start()
-      .awaitTermination()
+      .start
+      .awaitTermination
    /* val processedData = kvDataSet.mapGroupsWithState(GroupStateTimeout.ProcessingTimeTimeout)(new MapGroupsWithStateFunction[String, CameraData, CameraData, CameraData] {
       @throws[Exception]
       override def call(key: String, values: util.Iterator[CameraData], state: GroupState[CameraData]) = {

@@ -14,6 +14,7 @@ import org.opencv.videoio.VideoCapture;
 
 import java.nio.charset.StandardCharsets;
 import java.sql.Timestamp;
+import java.util.Base64;
 
 public class CvLauncher {
     static final Logger logger = Logger.getLogger(CvLauncher.class);
@@ -43,7 +44,7 @@ public class CvLauncher {
                     .setRows(rows)
                     .setDataType(type)
                     .setTimeStamp(timeStamp)
-                    .setData(new String(data, StandardCharsets.UTF_8))
+                    .setData(Base64.getEncoder().encodeToString(data))
                     .build();
 
             ProducerRecord<String, VideoBean> producerRecord = new ProducerRecord<>(topic, cameraID, videoFrame);
